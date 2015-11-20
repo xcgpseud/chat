@@ -1,0 +1,99 @@
+
+
+// Draft
+
+// What we need..
+(classes)
+
+    - Account.
+    - IDatabase
+        -(InMemoryDatabase)
+    - DatabaseFactory
+    - Servlet (Controller) (check)
+    - Facade
+    - Chat (Account & Chat are ORM classes). [ Object-Relational mapping ]
+    
+    
+    
+Design pattern:
+
+- Composite. Which says that objects can consists of more objects. And you can add / delete objects on this object.
+
+
+For the future..
+     -> Servlet to handle some "domain logic". (AJAX) (JQuery to do AJAX)
+
+
+
+JQuery VS Javascript.
+  - JQuery: makes it easy
+            Compiled to Javascript (js is like the web assembly)
+            "Heavy" (slows down your webpage)
+            makes animations, multithreading easier.
+
+  - Javascript: plain and simple
+                no higher level functions
+                no easy multithreading
+                ...
+                but it's lightweight.
+
+
+ AJAX: Asynchronous javascript and XML
+  - AJAX can use any data format (mostly it's either XML, or recently JSON)
+
+  _ _ _ _ _ _  (is client execution)
+  . . . . . . . (Server Execution)
+
+
+  Synchronous execution
+  --------         --------------
+          .........                ..........
+
+   Result : Unresponsive pages (or in apps the 'snow-effect')
+
+
+   Asynchronous execution
+
+   -------------------------------------------------
+       \     /               \            / (different thread) == AJAX is the layer between client and server
+   . . . . . . . . . .. . . . . .. . . .... . . .. .
+
+    Result: no more freezes
+            less idle team
+
+
+     3 solutions to async: AJAX polling         (pull based)  (C asks S)
+                           AJAX long-polling    (push based)  (S sends C)
+                           WebSockets (HTML5)   (push based)  (S send C)
+
+     Polling: The client asks the server, server sends response, closes connection
+     Long-polling: a TCP connections is made, and kept open for 20s, during that time the server can send whenever it wants
+                       -> Heavier on server
+     WebSockets: (approx) Real-time communications, bidirectional and full-duplex.
+                              -> bidirectional = C->S S->C. full-duplex over the same connections, traffic in both ways
+                              -> Multiplayer games
+                              -> VOIP
+                              -> Live-videochat
+                                (HTML5) and mainly server side
+
+
+      AJAX: introduced the "partial page update"
+
+
+
+
+-------------------------------------------------------------------
+
+
+What to implement (for chat)? (and where to change code)
+    -> MySQL (Change db)
+    -> MySQL DB Class
+    -> Change Facade
+    -> Add option to DBFactory
+
+
+---------------------------------------------------------------------
+
+TODO: Save message in db
+    -> Show message to chat partner (and ourselves)
+
